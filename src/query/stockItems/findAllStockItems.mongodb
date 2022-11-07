@@ -1,0 +1,18 @@
+use('HLD');
+db.stockitems.aggregate([{
+    /**
+     * from: The target collection.
+     * localField: The local join field.
+     * foreignField: The target join field.
+     * as: The name for the results.
+     * pipeline: The pipeline to run on the joined collection.
+     * let: Optional variables to use in the pipeline field stages.
+     */
+    $lookup: {
+      from: 'string',
+      localField: 'string',
+      foreignField: 'string',
+      as: 'string'
+    }
+}]);
+

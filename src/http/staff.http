@@ -1,0 +1,31 @@
+# baseURL
+@baseURL = http://localhost:3001/staffs
+
+###
+# Find All Staffs
+GET {{ baseURL }}
+
+### 
+# New Staff
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "first_name": "",
+    "last_name": "",
+    "contacts": ["+998 33 099 00 01"],
+    "org": "62ed076cf27eb294443fd5e2"
+}
+
+### 
+# Update Staff
+PUT {{baseURL}}
+Content-Type: application/json
+
+{
+    "_id": "62eea17d68c3c23e0f7c2a59",
+    "first_name": "Adham",
+    "last_name": "Muhammadjonov",
+    "contacts": ["+998 33 099 00 02"],
+    "org": "62ed076cf27eb294443fd5e2"
+}

@@ -1,0 +1,66 @@
+# baseURL
+@baseURL = http://localhost:3001/stock-items
+
+###
+# Find All Stockitems
+GET {{ baseURL }}
+
+
+###
+# Add new StockItem
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "product_uz": "Macbook pro 16-dyum Kulrang 512GB 32GB",
+    "product_ru": "Macbook pro 16-дюйм Серый 512 ГБ 32 ГБ - ОЗУ",
+    "slug_ru": "",
+    "slug_uz": "",
+    "product_id": "62fc97c660f994161f0d366b",
+    "quantity": 12,
+    "price": 2300,
+    "discount": 0, 
+    "merchant": "62ed076cf27eb294443fd5e1",
+    "characteristics": [{
+        "name_ru": "Color",
+        "name_uz": "Rangi",
+        "v_type": "color",
+        "v_title_uz": "Kulrang",
+        "v_title_ru": "Seriy",
+        "value": "#6e6e6e",
+        "v_photo": "https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large_2x.jpg"
+    }, {
+        "name_ru": "Pamit",
+        "name_uz": "Xotira hajmi",
+        "v_type": "number",
+        "v_title_uz": "512 GB",
+        "v_title_ru": "512 ГБ",
+        "v_photo": "---",
+        "v_value": "512"
+    }, {
+        "name_ru": "Ozu",
+        "name_uz": "RAM",
+        "v_type": "number",
+        "v_title_uz": "32 GB",
+        "v_title_ru": "32 ГБ",
+        "v_photo": "---",
+        "v_value": "32"
+    }],
+    "additional_description_uz": "This is crazy",
+    "additional_description_ru": "string"
+}
+
+
+### 
+# Search for product with keyword
+GET {{baseURL}}/search?search_text=
+
+
+###
+# Delete item
+DELETE {{baseURL}}
+Content-Type: application/json
+
+{
+    "stock_item_id": "6304b5662ca3368f63b28ba3"
+}

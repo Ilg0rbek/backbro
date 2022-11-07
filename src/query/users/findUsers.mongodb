@@ -1,0 +1,135 @@
+use('HLD');
+
+// db.users.find();
+
+
+db.users.aggregate([{
+    $match: {
+      is_delete: false
+    }
+},  {
+    $lookup: {
+      from: 'roles',
+      localField: 'role',
+      foreignField: '_id',
+      as: 'role'
+    }
+},   {
+    $unwind: {
+      path: '$role',
+    }
+}, {
+    /**
+     * specifications: The fields to
+     *   include or exclude.
+     */
+    $project: {
+      role: {
+        "title_uz": "$role.title_uz",
+        "title_ru": "$role.title_ru",
+        "title_en": "$role.title_en"
+      },
+      modules: "$role.modules",
+      staff: "$staff",
+      password: "$password",
+      username: "$username"
+    }
+},  {
+    /**
+     * field: The field name
+     * expression: The expression.
+     */
+    $set: {
+      modules: {
+        $filter: {
+            input: "$modules",
+            as: "module",
+            cond: {
+                $eq: [true, "$$module.permission"]
+            }
+        }
+      }
+    }
+}, {
+    /**
+     * path: Path to the array field.
+     * includeArrayIndex: Optional name for index.
+     * preserveNullAndEmptyArrays: Optional
+     *   toggle to unwind null and empty values.
+     */
+    $unwind: {
+      path: '$modules',
+    }
+}, {
+    /**
+     * _id: The id of the group.
+     * fieldN: The first field name.
+     */
+    $group: {
+      _id: '$_id',
+
+      role: {
+        $first: '$role'
+      },
+       staff: {
+        $first: "$staff"
+       },
+      password: {
+        $first: "$password"
+      },
+      username: {
+        $first: "$username"
+      },
+      modules: {
+        $push: '$modules.uri'
+      },
+      actions: {
+        $push: "$modules.actions"
+      }
+    }
+},  {
+    /**
+     * field: The field name
+     * expression: The expression.
+     */
+    $set: {
+      actions: {
+        $reduce: {
+          input: "$actions",
+          initialValue: [],
+          in: { $concatArrays: ["$$value", "$$this"] }
+        }
+      }
+    }
+},
+{
+    /**
+     * field: The field name
+     * expression: The expression.
+     */
+    $set: {
+      actions: {
+        $filter: {
+            input: "$actions",
+            as: "action",
+            cond: {
+                $eq: [true, "$$action.permission"]
+            }
+        }
+      }
+    }
+}, {
+    $set: {
+      actions: {
+        $map: {
+            input: "$actions",
+            as: "action",
+            in: "$$action.uri"
+        }
+      }
+    }
+}
+])
+
+
+// db.getCollectionInfos()

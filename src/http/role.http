@@ -1,0 +1,128 @@
+# baseURL
+@baseURL = http://localhost:3001/roles
+
+###
+# Find All Roles
+GET {{ baseURL }}
+
+###
+# Create Role
+POST {{ baseURL }}
+Content-Type: application/json
+
+{
+    "title_uz": "Admin",
+    "title_en": "Admin",
+    "title_ru": "Админ"
+}
+
+###
+# Update role
+PUT {{baseURL}}
+Content-Type: application/json
+
+{
+    "_id": "62ecf367195b4569bb5fb9da",
+    "title_uz": "Dasturchi",
+    "title_en": "Developer",
+    "title_ru": "Разработчик"
+}
+
+
+###
+# Delete role
+DELETE {{baseURL}}
+Content-Type: application/json
+
+{
+    "_id": "62ebdf3b07c1fa5a55a42559"
+}
+
+###
+# Add module
+POST {{baseURL}}/module
+Content-Type: application/json
+
+{
+    "uri": "Stock"
+}
+
+
+###
+# Update module uri (only)
+PUT {{baseURL}}/module
+Content-Type: application/json
+
+{
+    "uri": "Variants",
+    "new_uri": "ProductVariants"
+}
+
+###
+# Toggle module permission
+PATCH  {{baseURL}}/module
+Content-Type: application/json
+
+{
+    "role_id": "62f0b9b7e60d7adecfbde75d",
+    "module_id": "62f0b9f5e60d7adecfbde769"
+}
+
+
+###
+# Find All Roles
+GET {{ baseURL }}
+
+
+###
+# Delete module
+DELETE  {{baseURL}}/module
+Content-Type: application/json
+
+{
+    "uri": "rolesAndPermissions"
+}
+
+###
+# Add action
+POST {{baseURL}}/module-action
+Content-Type: application/json
+
+{
+    "module_uri": "Branches",
+    "uri": "bAction1"
+}
+
+
+### 
+# Update action 
+PUT {{baseURL}}/module-action
+Content-Type: application/json
+
+{
+    "module_uri": "Dashboard",
+    "uri": "dashboardAction-2",
+    "new_uri": "dashboardAction-1"
+}
+
+
+###
+# Toggle action permission
+PATCH  {{baseURL}}/module-action
+Content-Type: application/json
+
+{
+    "role_id": "62ecf367195b4569bb5fb9da",
+    "module_id": "62eeb03e5693794b64575057",
+    "action_id": "62eeb0c95693794b6457505d"
+}
+
+###
+# Delete action
+DELETE  {{baseURL}}/module-action
+Content-Type: application/json
+
+{
+    "module_uri": "rolesAndPermissions",
+    "uri": "someAction2"
+}

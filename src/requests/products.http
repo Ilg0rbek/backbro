@@ -1,0 +1,134 @@
+# baseURL
+@baseURL = http://localhost:3001/products
+
+###
+# Find All Categories
+GET {{ baseURL }}
+
+###
+# Create Product
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "name_ru": "Macbook 16-dyum", 
+    "name_uz": "Macbook 16-dyum", 
+    "characteristics": [ 
+        { 
+            "name_uz": "Rangi", 
+            "name_ru": "Svet", 
+            "variants": [ 
+                { 
+                    "v_type": "color", 
+                    "v_title_uz": "Gray", 
+                    "v_title_ru": "Gray", 
+                    "v_photo": "-", 
+                    "v_value": "#878787" 
+                }, 
+                { 
+                    "v_type": "color", 
+                    "v_title_uz": "silver", 
+                    "v_title_ru": "Silver", 
+                    "v_photo": "-", 
+                    "v_value": "#dedede" 
+                } 
+            ] 
+    }, 
+    { 
+        "name_uz": "Xotirasi", 
+        "name_ru": "Storage", 
+        "variants": [ 
+            { 
+                "v_type": "number", 
+                "v_title_uz": "512 GB", 
+                "v_title_ru": "512 GB", 
+                "v_photo": "", 
+                "v_value": "512" 
+            }, 
+            { 
+                "v_type": "number", 
+                "v_title_uz": "1 TB", 
+                "v_title_ru": "1 TB", 
+                "v_photo": "", 
+                "v_value": "1000" 
+            } 
+        ] 
+    }, { 
+        "name_uz": "Ekran", 
+        "name_ru": "Ekran", 
+        "variants": [ 
+            { 
+                "v_type": "number", 
+                "v_title_uz": "16-inch", 
+                "v_title_ru": "16-inch", 
+                "v_photo": "", 
+                "v_value": 16 
+            }
+        ] 
+    }
+    ], 
+    "description_uz": "this is amaiznfg", 
+    "description_ru": "this is amazing",
+    "main_photo": "Macbook 16 image", 
+    "categories": [ "/category1", "/category1/category1-2" ], 
+    "brand": "Apple"
+}
+
+
+
+###
+# Create Product
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "name_ru": "iPhone 13 Pro", 
+    "name_uz": "iPhone 13 Pro", 
+    "characteristics": [ 
+        { 
+            "name_uz": "Rangi", 
+            "name_ru": "Svet", 
+            "variants": [ 
+                { 
+                    "v_type": "color", 
+                    "v_title_uz": "Gray", 
+                    "v_title_ru": "Gray", 
+                    "v_photo": "-", 
+                    "v_value": "#878787" 
+                }, 
+                { 
+                    "v_type": "color", 
+                    "v_title_uz": "silver", 
+                    "v_title_ru": "Silver", 
+                    "v_photo": "-", 
+                    "v_value": "#dedede" 
+                } 
+            ] 
+    }, 
+    { 
+        "name_uz": "Xotirasi", 
+        "name_ru": "Storage", 
+        "variants": [ 
+            { 
+                "v_type": "number", 
+                "v_title_uz": "512 GB", 
+                "v_title_ru": "512 GB", 
+                "v_photo": "", 
+                "v_value": "512" 
+            }, 
+            { 
+                "v_type": "number", 
+                "v_title_uz": "1 TB", 
+                "v_title_ru": "1 TB", 
+                "v_photo": "", 
+                "v_value": "1000" 
+            } 
+        ] 
+    } 
+    ], 
+    "description_uz": "this is amaiznfg", 
+    "description_ru": "this is amazing",
+    "main_photo": "iPhone 13 Pro", 
+    "categories": [ "/category1", "/category1/category1-2" ], 
+    "brand": "Apple"
+}

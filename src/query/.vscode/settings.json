@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Tomorrow Night Blue",
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#009176",
+      "activityBar.foreground": "#ffffff",
+      "statusBar.background": "#333",
+      "statusBar.foreground": "#fcfcfc"
+    },
+    "workbench.sideBar.location": "left"
+  }

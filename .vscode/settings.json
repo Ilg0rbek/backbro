@@ -1,0 +1,17 @@
+{
+  // "workbench.colorTheme": "White",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#fff200",
+    "activityBar.foreground": "#0a0000",
+    "statusBar.background": "#333",
+    "statusBar.foreground": "#fcfcfc",
+    // "editor.background": "#000",
+    // "editor.foreground": "#ffff",
+    // "ed"
+  },
+  "workbench.sideBar.location": "right",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": false
+}

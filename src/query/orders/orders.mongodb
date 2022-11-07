@@ -1,0 +1,41 @@
+use('HLD');
+
+db.orders.aggregate([
+            {
+                $lookup: {
+                    from: 'customers',
+                    localField: 'customer',
+                    foreignField: '_id',
+                    as: 'customer'
+                }
+            }, {
+                $lookup: {
+                    from: 'stockitems',
+                    localField: 'stock_item',
+                    foreignField: '_id',
+                    as: 'stock_item',
+                    pipeline: [{
+                        $lookup: {
+                            from: 'orgs',
+                            localField: 'merchant',
+                            foreignField: '_id',
+                            as: 'merchant',
+                        }
+                    }, {
+                        $unwind: {
+                            path: '$merchant'
+                        }
+                    }]
+                }
+            },
+             {
+                $unwind: {
+                    path: "$customer"
+                }
+            },
+            {
+                $unwind: {
+                    path: "$stock_item"
+                }
+            }
+        ])

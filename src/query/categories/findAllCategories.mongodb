@@ -1,0 +1,4 @@
+use('HLD');
+
+db.categories.find();
+// db.categories.deleteOne({_id: ObjectId('62f044dbc80921bc8f208af1')})

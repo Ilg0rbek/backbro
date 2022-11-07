@@ -1,0 +1,53 @@
+# baseURL
+@baseURL = http://localhost:3001/orgs
+
+###
+# Find All Roles
+GET {{ baseURL }}
+
+### 
+# New Org
+POST {{ baseURL }}
+Content-Type: application/json
+
+{
+    "org_type": "none",
+    "name": "Beelab",
+    "contacts": ["+998330990001", "+998901330900"],
+    "branches": [{
+        "name": "Main office",
+        "contacts": ["+998330990001", "+998901330900"],
+        "is_main": true,
+        "location": {
+            "zoom": 15,
+            "coords": [41.30589, 69.279931]
+        }
+    }]
+
+}
+
+###
+# Update org
+PUT {{ baseURL }}
+Content-Type: application/json
+
+{
+    "_id": "62ed0a8297d3ca95288be15d",
+    "org_type": "merchant",
+    "name": "iSomething 12",
+    "contacts": ["+998330990001", "+998901330900"],
+    "branches": [
+        {
+          "location": {
+            "coords": [41.30589,69.279931],
+            "zoom": 19
+          },
+          "_id": "6304faf94f83d8be17a581cc",
+          "contacts": ["+998330990001","+998901330900"],
+          "name": "iSomething Branch-00012123",
+          "is_main": true
+        }
+      ]
+}
+
+

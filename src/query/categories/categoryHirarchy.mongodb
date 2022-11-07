@@ -1,0 +1,47 @@
+use('HLD');
+
+db.categories.aggregate([
+//    {
+//         $group: {
+//             _id: '$parent',
+//             name_uz: {
+//                 $first: '$name_uz'
+//             },
+//             name_en: {
+//                 $first: '$name_en'
+//             },
+//             name_ru: {
+//                 $first: '$name_ru'
+//             },
+//             children: {
+//                 $push: {
+//                     name_uz: '$name_uz',
+//                     name_en: '$name_en',
+//                     name_ru: '$name_ru',
+//                     category: '$category'
+//                 }
+//             }
+//         }
+//    }
+    {
+    $match: {
+      parent: "/"
+    }
+  },
+   {
+    $graphLookup: {
+      from: "categories",
+      startWith: "$category",
+      connectFromField: "category",
+      connectToField: "parent",
+    //   depthField: "level",
+    maxDepth: 3,
+      as: "categories"
+    }
+  }
+/**
+ * _id: The id of the group.
+ * fieldN: The first field name.
+ */
+
+])

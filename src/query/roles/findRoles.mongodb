@@ -1,0 +1,8 @@
+use('HLD');
+db.roles.find();
+
+// db.roles.deleteMany({
+//     _id: {
+//         $in: [ObjectId('62f0b2d577d1e9d0f1d1c18b'), ObjectId('62ecf367195b4569bb5fb9da'), ObjectId('62f0b3b3bd5af0da94a3e25c'), ObjectId('62f0b36972d8b9d9fcee0f51'), ObjectId('62f0b32877d1e9d0f1d1c18f')]
+//     }
+// });

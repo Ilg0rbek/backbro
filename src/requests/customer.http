@@ -1,0 +1,28 @@
+# baseURL
+@baseURL = http://localhost:3001/customers
+
+###
+# Find All Customers
+GET {{ baseURL }}
+
+### 
+# New Customer
+POST {{ baseURL }}
+Content-Type: application/json
+
+{
+    "first_name": "C",
+    "last_name": "D",
+    "contacts": ["+998330990001", "+998901330900"],
+    "location": {
+        "zoom": 15,
+        "coords": [41.30589, 69.279931]
+    },
+    "address": "Uzbekistan",
+    "customer_tags": ["something"],
+    "phone_nums": ["+998330990001", "+998901330900"]
+}
+
+
+
+

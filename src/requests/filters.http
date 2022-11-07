@@ -1,0 +1,41 @@
+# baseURL
+@baseURL = http://localhost:3001/category-filter
+
+###
+# Find All Categories
+GET {{ baseURL }}
+
+
+###
+# New Filter
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "filter_title_uz": "Filter - 001 edited v3",
+    "filter_title_ru": "Filter - 002",
+    "filter_type": "checkbox",
+    "combination": 1,
+    "filter_values": [{
+        "title_uz": "value 001",
+        "title_ru": "filter 002"
+    }]
+}
+
+###
+# Update filters
+PUT {{baseURL}}/update-filter
+Content-Type: application/json
+
+{
+    "_id": "62fa3eb272935538efb14f03",
+    "filter_title_uz": "Filter - 001 edited v3",
+    "filter_title_ru": "Filter - 002",
+    "filter_type": "checkbox",
+    "combination": 1,
+    "filter_values": [{
+        "title_uz": "value 001",
+        "title_ru": "filter 002",
+        "value": "filter_002"
+    }]
+}

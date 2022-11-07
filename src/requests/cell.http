@@ -1,0 +1,33 @@
+# baseURL
+##@baseURL = https://marketplace-hld-api.herokuapp.com
+@baseURL = http://localhost:3001/cells
+###
+# Find All Users
+GET {{ baseURL }}
+
+###
+# Update multiple cells or insert
+PUT {{baseURL}}/multiple
+Content-Type: application/json
+
+[{
+    "address": "A",
+    "products": [
+        {
+            "product_id": "6346c0e316c72701f60da90f",
+            "quantity": -2,
+            "barcode": "A",
+            "article": "001176"
+        }
+    ]  
+}, {
+    "address": "B",
+    "products": [
+       {
+            "product_id": "6346c0e316c72701f60da90f",
+            "quantity": 2,
+            "barcode": "A",
+            "article": "001176"
+        }
+    ]
+}]

@@ -1,0 +1,31 @@
+# baseURL
+@baseURL = http://localhost:3001/orders
+
+###
+# Find All Customers
+GET {{ baseURL }}
+
+### 
+# New Customer
+POST {{ baseURL }}
+Content-Type: application/json
+
+{
+    "order_title": "07/13/2022-003",
+    "customer": "63070b4b06713819499de1b7",
+    "stock_item": "6305e8c9c29c00d3e649fe46",
+    "quantity": 1,
+    "delivery_date": "12-02-2022",
+    "delivered_date": null,
+    "paid_date": null,
+    "statuses": [{
+        "value": "new",
+        "comment": ""
+    }]
+}
+
+
+###
+# get product with merchant and price
+GET {{baseURL}}/search_product?search_text=sam
+
